@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>區塊鏈電子病歷系統</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- 確保 ethers.js 先載入 -->
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ipfs-http-client/dist/index.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="CONFIG.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body>
+    <div id="mainContainer">
+        <!-- 匯率區塊 -->
+        <div id="exchangeRateContainer">
+            <h3>
+                即時匯率 (ETH/USD):
+                <span id="currentRate">載入中...</span>
+                <span id="rateArrow"></span>
+            </h3>
+            <canvas id="exchangeRateChart" width="400" height="200"></canvas>
+        </div>
+
+        <!-- 電子病歷區塊 -->
+        <div id="medicalRecordsSection">
+            <h1>區塊鏈電子病歷系統</h1>
+
+            <!-- 新增病歷 -->
+            <div class="box">
+                <h2>新增病歷</h2>
+                <label for="patientID">病人 ID</label>
+                <input type="text" id="patientID" placeholder="輸入病人 ID">
+
+                <label for="medicalRecord">病歷內容</label>
+                <textarea id="medicalRecord" placeholder="輸入病歷內容"></textarea>
+
+                <button onclick="uploadRecord()" class="uploadButton">上傳病歷</button>
+                <p id="uploadStatus"></p>
+            </div>
+
+            <!-- 查詢病歷 -->
+            <div class="box">
+                <h2>查詢病歷</h2>
+                <label for="searchPatientID">病人 ID</label>
+                <input type="text" id="searchPatientID" placeholder="輸入病人 ID">
+
+                <button onclick="fetchRecord()" class="searchButton">查詢病歷</button>
+                <p id="recordResult"></p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,131 @@
+/* 全局樣式 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgba(25, 213, 169, 0.4);
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    /* 頂部對齊 */
+    height: 100vh;
+    overflow: auto;
+    /* 避免超出屏幕後無法滾動 */
+}
+
+/* 主容器 */
+#mainContainer {
+    display: flex;
+    justify-content: space-between;
+    /* 左右分佈 */
+    align-items: flex-start;
+    /* 頂部對齊 */
+    gap: 30px;
+    /* 左右區塊間距 */
+    width: 90%;
+    max-width: 1200px;
+    /* 限制最大寬度 */
+    margin: 20px auto;
+}
+
+/* 匯率區塊 */
+#exchangeRateContainer {
+    flex: 3;
+    /* 左側區塊占用更多寬度 */
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#exchangeRateContainer h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+/* 電子病歷區塊 */
+#medicalRecordsSection {
+    flex: 2;
+    /* 右側區塊占用較小寬度 */
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#medicalRecordsSection h1 {
+    color: #6C6C6C;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* 盒子樣式 */
+.box {
+    background: #fdfdfd;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* 輸入框和文本框樣式 */
+input,
+textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 14px;
+}
+
+/* 按鈕樣式 */
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: rgb(0, 202, 202);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    opacity: 0.8;
+    /* 初始透明度 */
+    box-shadow: 2px 2px 5px rgb(0, 202, 202);
+    transition: opacity 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    opacity: 1;
+    box-shadow: 4px 4px 10px rgba(0, 202, 202, 0.5);
+}
+
+/* 狀態訊息樣式 */
+#uploadStatus,
+#recordResult {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* 響應式處理 */
+@media (max-width: 768px) {
+    #mainContainer {
+        flex-direction: column;
+        /* 改為上下排列 */
+        gap: 20px;
+    }
+
+    #exchangeRateContainer,
+    #medicalRecordsSection {
+        width: 100%;
+    }
+}
